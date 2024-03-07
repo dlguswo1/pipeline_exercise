@@ -69,6 +69,21 @@ jobs:
     - name: Upload to S3
       run: aws s3 cp --region ap-northeast-2 ./githubactionpipeline.zip s3://githubactionpipeline
 
+# 추가된 부분 ------------------------------------------------------
+   # Deploy
+    - name: Deploy
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.test_access_key }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.test_secret_access_key }}
+      run: |
+        aws deploy create-deployment \
+        --application-name pipeline \
+        --deployment-group-name pipeline-group \
+        --file-exists-behavior OVERWRITE \
+        --s3-location bucket=githubactionpipeline,bundleType=zip,key=githubactionpipeline.zip \ 
+        --region ap-northeast-2 
+# ------------------------------------------------------------------
+
   dependency-submission:
 
     runs-on: ubuntu-latest
