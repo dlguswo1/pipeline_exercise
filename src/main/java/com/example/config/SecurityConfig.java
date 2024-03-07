@@ -56,7 +56,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((authorizeRequests) ->
                         authorizeRequests
                                 .requestMatchers("/login/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/boardWrite").authenticated()
+                                .requestMatchers(HttpMethod.POST, "/boardWrite").permitAll()
                                 .anyRequest().permitAll()
                 );
 
