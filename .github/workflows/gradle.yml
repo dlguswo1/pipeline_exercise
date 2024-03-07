@@ -59,7 +59,7 @@ jobs:
         aws-region: ap-northeast-2
 
     - name: Upload to S3
-      run: aws s3 cp --region ap-northeast-2 ./githubactionpipeline.zip s3://$githubactionpipeline/
+      run: aws s3 cp --region ap-northeast-2 ./githubactionpipeline.zip s3:githubactionpipeline
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
