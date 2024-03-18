@@ -5,10 +5,7 @@ import com.example.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -32,12 +29,7 @@ public class UserController {
     }
 
     @GetMapping("/test2")
-    public String test2() {
+    public @ResponseBody String test2() {
         return "test2 확인";
-    }
-
-    @GetMapping("/test3")
-    public String test3() {
-        return "test3 확인";
     }
 }
