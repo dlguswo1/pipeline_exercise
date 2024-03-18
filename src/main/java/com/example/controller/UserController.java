@@ -30,6 +30,6 @@ public class UserController {
 
     @GetMapping("/test2")
     public @ResponseBody String test2() {
-        return "test2 확인";
+        return "test2 확인 두번쨰 22";
     }
 }
